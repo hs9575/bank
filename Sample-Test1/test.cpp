@@ -26,3 +26,19 @@ TEST_F(AccountFixture, Withdraw) {
 	EXPECT_EQ(9400, account.getBalance());
 
 }
+
+TEST_F(AccountFixture, InterestFive) {
+	account.setInterest(5);
+	account.applyInterest();
+	EXPECT_EQ(10500, account.getBalance());
+
+}
+
+
+TEST_F(AccountFixture, PredictPrice) {
+	account.setInterest(10);
+	int ret = account.predictPrice(3);
+	EXPECT_EQ(13310, ret);
+
+
+}
